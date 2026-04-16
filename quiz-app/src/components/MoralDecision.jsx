@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import strings from '../strings.json';
+
+const s = strings.moralDecision;
 
 /* ─── 動態募款箱 ────────────────────────────────────── */
 function DonationBox({ amount, maxAmount, side, label, sublabel }) {
@@ -212,13 +215,13 @@ export default function MoralDecision({ value, onChange, onSubmit }) {
           letterSpacing: 2,
           marginBottom: 10,
         }}>
-          🗳️ 慈善捐款亭
+          {s.badge}
         </div>
         <h2 style={{ fontSize: 22, fontWeight: 900, color: '#1e3a5f', margin: 0 }}>
-          分配您的 $100 捐款
+          {s.title}
         </h2>
         <p style={{ fontSize: 13, color: '#9ca3af', marginTop: 6 }}>
-          拖動滑桿，將資金投入募款箱
+          {s.subtitle}
         </p>
       </div>
 
@@ -228,8 +231,8 @@ export default function MoralDecision({ value, onChange, onSubmit }) {
           amount={careAmount}
           maxAmount={100}
           side="left"
-          label="🔴 Red Cross（紅十字會）"
-          sublabel="人道救援 · 緊急醫療照護"
+          label={s.redCross.label}
+          sublabel={s.redCross.sublabel}
         />
 
         {/* 中央天平裝飾 */}
@@ -250,8 +253,8 @@ export default function MoralDecision({ value, onChange, onSubmit }) {
           amount={fairnessAmount}
           maxAmount={100}
           side="right"
-          label="✊ Amnesty International"
-          sublabel="人權倡議 · 公平正義"
+          label={s.amnesty.label}
+          sublabel={s.amnesty.sublabel}
         />
 
         {/* 飛行硬幣 */}
@@ -302,8 +305,8 @@ export default function MoralDecision({ value, onChange, onSubmit }) {
           }}
         />
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8, fontSize: 11, color: '#9ca3af' }}>
-          <span>← 全給 Red Cross</span>
-          <span>全給 Amnesty →</span>
+          <span>{s.sliderLeft}</span>
+          <span>{s.sliderRight}</span>
         </div>
       </div>
 
@@ -319,9 +322,9 @@ export default function MoralDecision({ value, onChange, onSubmit }) {
         fontSize: 13,
         color: '#374151',
       }}>
-        <span>🔴 Red Cross：<strong style={{ color: '#dc2626' }}>${careAmount}</strong></span>
+        <span>{s.redCross.label}: <strong style={{ color: '#dc2626' }}>${careAmount}</strong></span>
         <span style={{ color: '#d1d5db' }}>|</span>
-        <span>✊ Amnesty：<strong style={{ color: '#d97706' }}>${fairnessAmount}</strong></span>
+        <span>{s.amnesty.label}: <strong style={{ color: '#d97706' }}>${fairnessAmount}</strong></span>
       </div>
 
       {/* 確認按鈕 */}
@@ -343,7 +346,7 @@ export default function MoralDecision({ value, onChange, onSubmit }) {
             letterSpacing: 1,
           }}
         >
-          💰 確認捐款
+          {s.confirmButton}
         </motion.button>
       </div>
     </motion.div>

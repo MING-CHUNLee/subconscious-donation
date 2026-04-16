@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import strings from '../strings.json';
+
+const s = strings.debriefing;
 
 const GAS_URL = import.meta.env.VITE_GAS_URL;
 
@@ -160,12 +163,12 @@ export default function Debriefing({ condition, donationSplit }) {
           transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
           style={{ textAlign: 'center', marginBottom: 20 }}
         >
-          <div style={{ fontSize: 36, marginBottom: 8 }}>🔬</div>
+          <div style={{ fontSize: 36, marginBottom: 8 }}>{s.icon}</div>
           <h2 style={{ fontSize: 22, fontWeight: 900, color: '#7c3aed', margin: 0 }}>
-            這是一場心理學實驗
+            {s.title}
           </h2>
           <p style={{ fontSize: 13, color: '#9ca3af', marginTop: 8 }}>
-            您的捐款決定可能受到了潛意識的影響
+            {s.subtitle}
           </p>
         </motion.div>
 
@@ -183,7 +186,7 @@ export default function Debriefing({ condition, donationSplit }) {
           }}
         >
           <div style={{ fontSize: 13, fontWeight: 700, color: '#374151', marginBottom: 16, textAlign: 'center' }}>
-            🏆 您的捐款結果
+            {s.yourResults}
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'flex-end' }}>
             <ResultBox amount={careAmount}     color="#dc2626" icon="❤️" label="Red Cross" />
@@ -208,15 +211,13 @@ export default function Debriefing({ condition, donationSplit }) {
           }}
         >
           <div style={{ fontSize: 12, fontWeight: 700, color: '#6b7280', marginBottom: 8, letterSpacing: 1 }}>
-            系統隨機分派給您的組別
+            {s.assignedGroup}
           </div>
           <div style={{ fontSize: 15, fontWeight: 700, color: isCompassion ? '#1d4ed8' : '#15803d' }}>
-            {isCompassion ? '💙 同情 (Compassion) 組' : '💚 感激 (Gratitude) 組'}
+            {isCompassion ? s.compassionGroup : s.gratitudeGroup}
           </div>
           <div style={{ fontSize: 12, color: '#6b7280', marginTop: 6 }}>
-            {isCompassion
-              ? '前導情境旨在喚起同情心，驅使您關注「減輕痛苦（Care）」的目標'
-              : '前導情境旨在喚起感激之情，驅使您關注「公平正義（Fairness）」的目標'}
+            {isCompassion ? s.compassionDescription : s.gratitudeDescription}
           </div>
         </motion.div>
 
@@ -228,16 +229,16 @@ export default function Debriefing({ condition, donationSplit }) {
           style={{ fontSize: 13, color: '#374151', lineHeight: 1.7, marginBottom: 16 }}
         >
           <p style={{ margin: '0 0 10px' }}>
-            根據 <strong>Goenka &amp; van Osselaer (2019)</strong> 的研究：
+            <strong>Goenka &amp; van Osselaer (2019)</strong> found:
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
             <div style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: 8, padding: '10px 12px' }}>
-              <div style={{ fontWeight: 700, color: '#1d4ed8', marginBottom: 4, fontSize: 12 }}>同情心 (Compassion)</div>
-              <div style={{ fontSize: 12, color: '#6b7280' }}>→ 傾向捐給強調「關懷」的組織</div>
+              <div style={{ fontWeight: 700, color: '#1d4ed8', marginBottom: 4, fontSize: 12 }}>{s.compassionFinding.title}</div>
+              <div style={{ fontSize: 12, color: '#6b7280' }}>{s.compassionFinding.description}</div>
             </div>
             <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 8, padding: '10px 12px' }}>
-              <div style={{ fontWeight: 700, color: '#15803d', marginBottom: 4, fontSize: 12 }}>感激之情 (Gratitude)</div>
-              <div style={{ fontSize: 12, color: '#6b7280' }}>→ 傾向捐給強調「公平」的組織</div>
+              <div style={{ fontWeight: 700, color: '#15803d', marginBottom: 4, fontSize: 12 }}>{s.gratitudeFinding.title}</div>
+              <div style={{ fontSize: 12, color: '#6b7280' }}>{s.gratitudeFinding.description}</div>
             </div>
           </div>
         </motion.div>
@@ -257,9 +258,7 @@ export default function Debriefing({ condition, donationSplit }) {
             border: `1px solid ${isSubmitting ? '#e5e7eb' : '#bbf7d0'}`,
           }}
         >
-          {isSubmitting
-            ? '⏳ 正在將您的數據整合至全班統計資料庫…'
-            : '✅ 數據已同步完成。請看台上的全班統計結果！'}
+          {isSubmitting ? s.submitting : s.submitted}
         </motion.div>
       </motion.div>
     </>

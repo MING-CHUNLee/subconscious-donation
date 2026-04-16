@@ -1,4 +1,7 @@
 import { motion } from 'framer-motion';
+import strings from '../strings.json';
+
+const s = strings.landing;
 
 export default function Landing({ onStart }) {
   return (
@@ -36,7 +39,7 @@ export default function Landing({ onStart }) {
         letterSpacing: 2,
         marginBottom: 20,
       }}>
-        🎪 心理學小遊戲
+        {s.badge}
       </div>
 
       {/* 標題 */}
@@ -46,7 +49,7 @@ export default function Landing({ onStart }) {
         transition={{ delay: 0.3, duration: 0.6 }}
         style={{ fontSize: 32, fontWeight: 900, color: '#1e3a5f', marginBottom: 8, lineHeight: 1.2 }}
       >
-        道德直覺測試
+        {s.title}
       </motion.h1>
 
       {/* 裝飾線 */}
@@ -64,11 +67,9 @@ export default function Landing({ onStart }) {
         transition={{ delay: 0.8, duration: 0.7 }}
         style={{ color: '#6b7280', lineHeight: 1.8, marginBottom: 28, fontSize: 15 }}
       >
-        走進慈善捐款亭，探索您的道德直覺
+        {s.description}
         <br />
-        如何影響您的捐款決策。
-        <br />
-        <span style={{ fontSize: 13, color: '#9ca3af' }}>全程約 2 分鐘，依直覺作答即可 🧠</span>
+        <span style={{ fontSize: 13, color: '#9ca3af' }}>{s.hint}</span>
       </motion.p>
 
       {/* 小圖示列 */}
@@ -78,11 +79,7 @@ export default function Landing({ onStart }) {
         transition={{ delay: 1.0, duration: 0.5 }}
         style={{ display: 'flex', justifyContent: 'center', gap: 24, marginBottom: 28 }}
       >
-        {[
-          { icon: '🏪', label: '商店街道' },
-          { icon: '🗳️', label: '投票亭' },
-          { icon: '💰', label: '募款箱' },
-        ].map((item) => (
+        {s.icons.map((item) => (
           <div key={item.label} style={{ textAlign: 'center' }}>
             <div style={{ fontSize: 26, marginBottom: 4, animation: 'float-slow 3s ease-in-out infinite' }}>{item.icon}</div>
             <div style={{ fontSize: 11, color: '#9ca3af' }}>{item.label}</div>
@@ -111,7 +108,7 @@ export default function Landing({ onStart }) {
           letterSpacing: 1,
         }}
       >
-        🚪 進入捐款亭
+        {s.startButton}
       </motion.button>
 
       <motion.p
@@ -120,7 +117,7 @@ export default function Landing({ onStart }) {
         transition={{ delay: 1.4 }}
         style={{ fontSize: 11, color: '#d1d5db', marginTop: 16 }}
       >
-        本測試僅供學術研究使用
+        {s.disclaimer}
       </motion.p>
     </motion.div>
   );

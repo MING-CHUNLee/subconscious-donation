@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
+import strings from '../strings.json';
 
 export default function EmotionPriming({ condition, onNext }) {
   const isCompassion = condition === 'compassion';
+  const s = isCompassion ? strings.emotionPriming.compassion : strings.emotionPriming.gratitude;
 
-  const textContent = isCompassion
-    ? '對於每一棵在乾旱中枯萎的樹，\n對於每一條被塑膠阻塞的河流…\n獻給大地之母。'
-    : '對於每一棵給予我們滋養的樹，\n對於每一條為我們解渴的溪流…\n獻給大地之母。';
+  const textContent = s.text;
 
   /* ── 同情組：深沉、雨夜感 ── */
   const compassionStyle = {
@@ -51,7 +51,7 @@ export default function EmotionPriming({ condition, onNext }) {
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
         style={{ fontSize: 48, marginBottom: 20 }}
       >
-        {isCompassion ? '🌧️' : '🌤️'}
+        {s.emoji}
       </motion.div>
 
       {/* 情境標籤 */}
@@ -66,7 +66,7 @@ export default function EmotionPriming({ condition, onNext }) {
         letterSpacing: 1,
         color: isCompassion ? '#d1d5db' : '#92400e',
       }}>
-        {isCompassion ? '🌿 情境感受' : '☀️ 情境感受'}
+        {s.label}
       </div>
 
       {/* 詩句逐行顯示 */}
@@ -131,7 +131,7 @@ export default function EmotionPriming({ condition, onNext }) {
           letterSpacing: 1,
         }}
       >
-        {isCompassion ? '繼續 →' : '前往捐款亭 →'}
+        {s.button}
       </motion.button>
 
       {/* 底部裝飾粒子（靜態） */}

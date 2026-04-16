@@ -1,0 +1,67 @@
+{
+  "landing": {
+    "badge": "🎪 Psychology Mini-Game",
+    "title": "Moral Intuition Test",
+    "description": "Step into the charity donation booth and explore how your moral intuitions shape your giving decisions.",
+    "hint": "Takes about 2 minutes — just go with your gut. 🧠",
+    "icons": [
+      { "icon": "🏪", "label": "Shopping Street" },
+      { "icon": "🗳️", "label": "Voting Booth" },
+      { "icon": "💰", "label": "Donation Box" }
+    ],
+    "startButton": "🚪 Enter the Donation Booth",
+    "disclaimer": "For academic research purposes only"
+  },
+  "emotionPriming": {
+    "compassion": {
+      "emoji": "🌧️",
+      "label": "🌿 Reflect",
+      "text": "Think back to a moment when your heart ached —\nMaybe you witnessed someone in pain,\nor came across an image that stayed with you.\nSit with that feeling for a moment.",
+      "button": "Continue →"
+    },
+    "gratitude": {
+      "emoji": "🌤️",
+      "label": "☀️ Reflect",
+      "text": "Think back to a moment when you felt deeply grateful —\nMaybe someone came through for you,\nor life offered you something truly precious.\nSit with that feeling for a moment.",
+      "button": "Head to the Donation Booth →"
+    }
+  },
+  "moralDecision": {
+    "badge": "🗳️ Charity Donation Booth",
+    "title": "Allocate Your $100 Donation",
+    "subtitle": "Drag the slider to split your funds between the two organizations",
+    "redCross": {
+      "label": "🔴 Red Cross",
+      "sublabel": "Humanitarian Aid · Emergency Medical Care"
+    },
+    "amnesty": {
+      "label": "✊ Amnesty International",
+      "sublabel": "Human Rights Advocacy · Justice & Fairness"
+    },
+    "sliderLeft": "← All to Red Cross",
+    "sliderRight": "All to Amnesty →",
+    "confirmButton": "💰 Confirm Donation"
+  },
+  "debriefing": {
+    "icon": "🔬",
+    "title": "This Was a Psychology Experiment",
+    "subtitle": "Your donation decision may have been quietly shaped by your subconscious",
+    "yourResults": "🏆 Your Donation Results",
+    "assignedGroup": "Your randomly assigned condition",
+    "compassionGroup": "💙 Compassion Group",
+    "gratitudeGroup": "💚 Gratitude Group",
+    "compassionDescription": "The opening scenario was designed to evoke compassion, priming you to prioritize \"Care\" — reducing others' suffering.",
+    "gratitudeDescription": "The opening scenario was designed to evoke gratitude, priming you to prioritize \"Fairness\" — justice and equal rights.",
+    "researchReference": "Based on research by Goenka & van Osselaer (2019):",
+    "compassionFinding": {
+      "title": "Compassion",
+      "description": "→ Tends to increase giving to care-oriented organizations"
+    },
+    "gratitudeFinding": {
+      "title": "Gratitude",
+      "description": "→ Tends to increase giving to fairness-oriented organizations"
+    },
+    "submitting": "⏳ Sending your response to the class dataset…",
+    "submitted": "✅ Submitted! Check the screen for the class-wide results."
+  }
+}
